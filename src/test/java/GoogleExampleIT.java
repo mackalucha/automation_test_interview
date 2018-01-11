@@ -12,29 +12,33 @@ import org.testng.annotations.Test;
 import java.util.logging.Logger;
 
 @Test(groups={"localTest"})
+
 public class GoogleExampleIT {
 	private static final Logger LOGGER = Logger.getLogger(GoogleExampleIT.class.getName());
 	private WebDriver driver;
-	private  @FindBy(css = "[name='q']") WebElement searchBar;
+	private @FindBy(css = "[name='q']") WebElement searchBar;
 
-
-	@Test
-	public void googleCheeseExample() throws Exception {
+	// Enters search term followed by ENTER to search. Accepts String 'term' as argument
+	private void search(String term) {
 		searchBar.clear();
-		searchBar.sendKeys("Cheese!");
+		searchBar.sendKeys(term);
 		searchBar.sendKeys(Keys.ENTER);
+	}
+
+	@Test(enabled = true)
+	public void googleCheeseExample() throws Exception {
+		String query = "Cheese!";
+		search(query);
 		LOGGER.info("Page title is: " + driver.getTitle());
-		Assert.assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
+		Assert.assertTrue(driver.getTitle().equals(query + " - Google Search"));
 	}
 
 	@Test(enabled = true)
 	public void googleMilkExample() throws Exception {
-		searchBar.clear();
-		searchBar.sendKeys("Milk!");
-		searchBar.sendKeys(Keys.ENTER);
+		String query = "Milk!";
+		search(query);
 		LOGGER.info("Page title is: " + driver.getTitle());
-		System.out.println(driver.getTitle());
-		Assert.assertTrue(driver.getTitle().equals("Milk! - Google Search"));
+		Assert.assertTrue(driver.getTitle().equals(query + " - Google Search"));
 	}
 
 	@BeforeMethod
