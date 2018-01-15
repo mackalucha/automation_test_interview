@@ -27,18 +27,16 @@ public class GoogleExampleIT {
 
 	@Test(enabled = true)
 	public void googleCheeseExample() throws Exception {
-		String query = "Cheese!";
-		search(query);
+		search("Cheese!");
 		LOGGER.info("Page title is: " + driver.getTitle());
-		Assert.assertTrue(driver.getTitle().equals(query + " - Google Search"));
+		Assert.assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
 	}
 
 	@Test(enabled = true)
 	public void googleMilkExample() throws Exception {
-		String query = "Milk!";
-		search(query);
+		search("Milk!");
 		LOGGER.info("Page title is: " + driver.getTitle());
-		Assert.assertTrue(driver.getTitle().equals(query + " - Google Search"));
+		Assert.assertTrue(driver.getTitle().equals("Milk! - Google Search"));
 	}
 
 	@BeforeMethod
