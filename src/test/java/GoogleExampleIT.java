@@ -50,7 +50,7 @@ public class GoogleExampleIT {
 			driver.close();
 		}
 
-	@Test
+	@Test(enabled = true)
 		public void googleCheeseExample() throws Exception {
 			searchBar.clear();
 			searchBar.sendKeys("Cheese!");
@@ -58,7 +58,7 @@ public class GoogleExampleIT {
 			logger.info("Page title is: " + driver.getTitle());
 			Assert.assertTrue(driver.getTitle().equals("Google"));
 		}
-	@Test
+	@Test(enabled = true)
 		public void googleMilkExample() throws Exception {
 			searchBar.clear();
 			searchBar.sendKeys("Milk!");
