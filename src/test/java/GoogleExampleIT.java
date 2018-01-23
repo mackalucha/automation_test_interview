@@ -66,7 +66,5 @@ public class GoogleExampleIT {
 			logger.info("Page title is: " + driver.getTitle());
 			Assert.assertTrue(driver.getTitle().equals("Google"));
 		}
-		
-
 
 }
